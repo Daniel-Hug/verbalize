@@ -40,7 +40,7 @@
 	verbalize.order = function(num) {
 		var mod100 = num % 100;
 		var suffix = mod100 > 4 && mod100 < 21 ? 0 : ['st', 'nd', 'rd'][num % 10 - 1];
-		return num + suffix || 'th';
+		return num + (suffix || 'th');
 	};
 
 
