@@ -12,6 +12,12 @@
 	var verbalize = {};
 
 
+	// Capitalize the first character in a string:
+	verbalize.capitalize = function(str) {
+		return str.length ? str[0].toUpperCase() + str.slice(1) : str;
+	};
+
+
 	//	Accepts an integer and an optional verb:
 	//		verbalize.times(1, 'try')
 	//	Returns the number of times paired with the verb:
