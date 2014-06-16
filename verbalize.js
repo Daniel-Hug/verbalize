@@ -18,6 +18,13 @@
 	};
 
 
+	// Capitalize the first character in a string:
+	vb.sentence = function(str, end) {
+		end = end || '.';
+		return vb.capitalize(str) + end;
+	};
+
+
 	//	Accepts an integer and an optional verb:
 	//		vb.times(1, 'try')
 	//	Returns the number of times paired with the verb:
@@ -36,6 +43,21 @@
 		cunjunction = ' ' + (cunjunction || 'and') + ' ';
 		if (items.length < 3) return items.join(cunjunction);
 		return items.slice(0, -1).join(', ') + ',' + cunjunction + items[items.length - 1];
+	};
+
+
+	//	Accepts two arrays -one with items to go before the 'but' and one with items for after.
+	//	Also accepts an optional "cunjunctions" array with up to three values to specify which cunjuction
+	//	to use for the first list, for between the two lists, and for the second list, respectively:
+	//		vb.but(['apples', 'pears', 'oranges'], ['carrots', 'celery'], [], 'are fruit')
+	//	Returns a comma-delimited list with the conjunction before the last item if there are 3 or more:
+	//		"apples, pears, and oranges are fruit, but not carrots or celery"
+	vb.but = function(aItems, bItems, cunjunctions, predicate) {
+		cunjunctions = cunjunctions || [];
+		aItems = vb.list(aItems, cunjunctions[0] || 'and');
+		bItems = vb.list(bItems, cunjunctions[2] || 'or');
+		predicate = predicate ? ' ' + predicate : '';
+		return aItems + predicate + ', ' + (cunjunctions[1] || 'but not') + ' ' + bItems;
 	};
 
 
