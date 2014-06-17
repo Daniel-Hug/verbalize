@@ -18,7 +18,7 @@
 	};
 
 
-	// Capitalize the first character in a string:
+	// Capitalize the first character in a string and add a period (or a custom char if specified) to the end:
 	vb.sentence = function(str, end) {
 		end = end || '.';
 		return vb.capitalize(str) + end;
