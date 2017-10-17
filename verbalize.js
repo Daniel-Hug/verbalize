@@ -25,6 +25,12 @@
 	};
 
 
+	// Add an 's or just an ' as needed to show possession
+	vb.givePossession = function(nounStr) {
+		return nounStr + (nounStr[nounStr.length - 1] === 's' ? '\'' : '\'s');
+	};
+
+
 	//	Accepts an integer and an optional verb:
 	//		vb.times(1, 'try')
 	//	Returns the number of times paired with the verb:
